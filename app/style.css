@@ -1,0 +1,125 @@
+/* Vice Cover Studio — editor styling. Fonts are bundled under fonts/. */
+@font-face {
+  font-family: "ViceCondensedBlack";
+  src: url("./fonts/NotoSans-CondensedBlack.ttf") format("truetype");
+  font-weight: 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: "ViceCondensedBold";
+  src: url("./fonts/NotoSans-CondensedBold.ttf") format("truetype");
+  font-weight: 700;
+  font-display: swap;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #12081f;
+  color: #f5eefc;
+  font-family: "ViceCondensedBold", "Arial Narrow", sans-serif;
+}
+
+.app {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 24px;
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.controls h1 {
+  margin: 0 0 4px;
+  font-family: "ViceCondensedBlack", sans-serif;
+  font-size: 34px;
+  letter-spacing: 0.5px;
+  color: #ffd166;
+  text-transform: uppercase;
+}
+
+.tagline { margin: 0 0 16px; color: #c9b8de; font-size: 15px; }
+
+.controls h2 {
+  margin: 20px 0 8px;
+  font-size: 17px;
+  color: #ff7a3c;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.hint { margin: 0 0 8px; color: #c9b8de; font-size: 14px; }
+
+.row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+
+label { display: block; margin-bottom: 10px; font-size: 15px; }
+label.file { color: #c9b8de; }
+label input[type="file"] { display: block; margin-top: 4px; color: #f5eefc; }
+label input[type="text"], label select {
+  display: block;
+  width: 100%;
+  margin-top: 4px;
+  padding: 8px 10px;
+  border: 1px solid #5b3a86;
+  border-radius: 6px;
+  background: #241238;
+  color: #f5eefc;
+  font-size: 16px;
+}
+label input[type="range"] { display: block; width: 100%; margin-top: 4px; accent-color: #ff7a3c; }
+
+button {
+  padding: 8px 12px;
+  border: 1px solid #5b3a86;
+  border-radius: 6px;
+  background: #241238;
+  color: #f5eefc;
+  font-family: inherit;
+  font-size: 15px;
+  cursor: pointer;
+}
+button:hover { border-color: #ff7a3c; }
+button.active { background: #ff7a3c; border-color: #ff7a3c; color: #1a0b2e; }
+button.secondary {
+  background: transparent;
+  color: #ffd166;
+  border-color: #ffd166;
+}
+button.secondary:hover { background: rgba(255, 209, 102, 0.12); }
+button.primary {
+  width: 100%;
+  padding: 12px;
+  font-size: 18px;
+  background: #ff2d96;
+  border-color: #ff2d96;
+  color: #fff;
+}
+button.primary:hover { background: #ff4aa8; }
+
+#status { color: #c9b8de; font-size: 14px; min-height: 20px; }
+
+.preview {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  min-width: 0;
+  background: radial-gradient(ellipse at 50% 30%, rgba(255, 122, 60, 0.12), rgba(18, 8, 31, 0) 70%);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+#cover {
+  max-width: 100%;
+  max-height: calc(100vh - 48px);
+  width: auto;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.6);
+}
+
+/* Screenshot mode: cover alone, no editor chrome. */
+body.shot-cover { background: #160a24; }
+body.shot-cover .app { display: block; padding: 0; }
+body.shot-cover .controls { display: none; }
+body.shot-cover .preview { display: block; padding: 0; background: none; }
+body.shot-cover #cover { max-height: none; width: 100vw; height: 100vh; object-fit: contain; box-shadow: none; border-radius: 0; }

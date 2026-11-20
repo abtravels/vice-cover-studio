@@ -1,0 +1,7 @@
+Fonts in this folder
+--------------------
+NotoSans-CondensedBlack.ttf and NotoSans-CondensedBold.ttf are from the
+Noto Sans family by Google, licensed under the SIL Open Font License,
+Version 1.1 (https://openfontlicense.org). The license allows the fonts to
+be bundled and shipped with this app. The full license text is included in
+the Noto Sans distribution; a copy is kept in the project's notes.

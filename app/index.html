@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vice Cover Studio — GTA-style cover art maker</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<main class="app">
+  <section class="controls" aria-label="Cover editor">
+    <h1>Vice Cover Studio</h1>
+    <p class="tagline">Your photo, your caption — a poster-style cover, exported as a PNG. Everything stays on your machine.</p>
+
+    <h2>1 · Photos</h2>
+    <p class="hint">Add up to three photos, one per panel. Or try a sample:</p>
+    <div class="row">
+      <button type="button" data-sample="pier" data-sample-slot="0">Sample: Pier</button>
+      <button type="button" data-sample="boulevard" data-sample-slot="1">Sample: Boulevard</button>
+    </div>
+    <label class="file">Panel 1 photo <input id="photo-0" type="file" accept="image/*"></label>
+    <label class="file">Panel 2 photo <input id="photo-1" type="file" accept="image/*"></label>
+    <label class="file">Panel 3 photo <input id="photo-2" type="file" accept="image/*"></label>
+
+    <h2>2 · Crop the panel</h2>
+    <div class="row" role="group" aria-label="Choose panel to crop">
+      <button type="button" data-panel-tab="0">Panel 1</button>
+      <button type="button" data-panel-tab="1">Panel 2</button>
+      <button type="button" data-panel-tab="2">Panel 3</button>
+    </div>
+    <label>Zoom <span id="zoom-value">100%</span>
+      <input id="zoom" type="range" min="1" max="2.5" step="0.05" value="1">
+    </label>
+    <label>Move left / right
+      <input id="pos-x" type="range" min="-100" max="100" step="1" value="0">
+    </label>
+    <label>Move up / down
+      <input id="pos-y" type="range" min="-100" max="100" step="1" value="0">
+    </label>
+    <div class="row">
+      <button id="reset-panel" type="button" class="secondary">Reset this panel's crop</button>
+    </div>
+
+    <h2>3 · Layout &amp; grade</h2>
+    <div class="row" role="group" aria-label="Layout">
+      <button type="button" data-layout="triple">Triple Split</button>
+      <button type="button" data-layout="duo">Duo</button>
+      <button type="button" data-layout="solo">Solo</button>
+    </div>
+    <div class="row" role="group" aria-label="Colour grade">
+      <button type="button" data-grade="sunset">Sunset</button>
+      <button type="button" data-grade="neon">Neon</button>
+      <button type="button" data-grade="gold">Gold</button>
+      <button type="button" data-grade="noir">Noir</button>
+    </div>
+
+    <h2>4 · Caption</h2>
+    <label>Caption <input id="caption" type="text" maxlength="40" value="Sunset Heist"></label>
+    <label>Subline <input id="subline" type="text" maxlength="40" value="Neon Nights"></label>
+    <p class="hint">A long caption wraps onto two lines instead of shrinking away.</p>
+
+    <h2>5 · Export</h2>
+    <label>Size <select id="size"></select></label>
+    <button id="export" type="button" class="primary">Export PNG</button>
+    <p id="status" role="status"></p>
+  </section>
+
+  <section class="preview" aria-label="Cover preview">
+    <canvas id="cover" width="1920" height="1080" aria-label="The cover"></canvas>
+  </section>
+</main>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
